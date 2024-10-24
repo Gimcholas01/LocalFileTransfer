@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='download.png') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/download.css') }}">
+    <title>File Download</title>
+</head>
+
+<body>
+    <div id="header_div">
+        <h1>Download Files</h1>
+    </div>
+    
+    <div id="container">
+        {% for file in files %}
+            <a class="file" href="{{ url_for('download_file', filename=file) }}">{{ loop.index }}. {{ file }}</a>
+         {% endfor %}
+    </div>
+
+    <div id="bottom_nav">
+        <a href="{{ url_for('upload') }}"><img src="{{ url_for('static', filename='favicon.ico') }}" class="image" />Upload Files</a>
+    </div>
+
+</body>
+</html>

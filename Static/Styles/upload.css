@@ -1,0 +1,102 @@
+html {
+    overflow-y: hidden;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #4A525A;
+    justify-content: flex-start;
+    background-image: linear-gradient(160deg, #24272B 0%, #4A525A 100%);
+}
+
+#header_div {
+    margin: 20px;
+    text-align: center;
+}
+
+#header_div h1 {
+    display: inline-block;
+    width: fit-content;
+    padding: 20px;
+    font-weight: bold;
+    color: #24272B;
+    border-radius: 25px;
+    background-color: #3E78B2;
+}
+
+#form {
+    background: #004BA8;              /* White background for the form */
+    background-image: linear-gradient(160deg, #004BA8 0%, #3E78B2 100%);
+    padding: 30px;                  /* Padding inside the form */
+    border-radius: 8px;             /* Rounded corners */
+    box-shadow: 10px 10px 8px #25292d;
+    text-align: center;
+}
+
+input {
+    padding: 10px;                  /* Padding inside the input */
+    border: 2px solid #ccc;        /* Light gray border */
+    border-radius: 4px;            /* Rounded corners */
+    width: fit-content;
+    cursor: pointer;                /* Pointer cursor on hover */
+    background-color: #f9f9f9;      /* Light background for the input */
+    transition: border-color 0.3s;  /* Smooth border color transition */
+}
+
+input:hover {
+    border-color: #3E78B2;          /* Change border color on hover */
+}
+
+#upload_button {
+    background-color: #4A525A;     /* Button background color */
+    display: none;
+    color: white;                   /* Button text color */
+    border: none;                   /* Remove default border */
+    border-radius: 4px;            /* Rounded corners */
+    padding: 15px 20px;            /* Padding inside button */
+    cursor: pointer;                /* Pointer cursor on hover */
+    width: fit-content;                    /* Full width */
+    transition: background-color 0.3s; /* Smooth background change */
+    margin-top: 30px;              /* Margin above the button */
+}
+
+#upload_button:hover {
+    background-color: #7b8996;      /* Darker blue on hover */
+}
+
+#bottom_nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    box-shadow: 0 -2px 5px -2px #333;
+}
+
+#bottom_nav a{
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #3E78B2;
+
+}
+
+#bottom_nav a:hover{
+    background-color: #36699c;
+
+}
+
+#bottom_nav img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}

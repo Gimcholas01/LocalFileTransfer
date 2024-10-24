@@ -1,0 +1,110 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #4A525A;
+    justify-content: flex-start;
+    background-image: linear-gradient(160deg, #24272B 0%, #4A525A 100%);
+}
+
+a {
+    white-space: pre;
+}
+
+#header_div {
+    margin: 20px;
+    text-align: center;
+}
+
+#header_div h1 {
+    display: inline-block;
+    width: fit-content;
+    padding: 20px;
+    font-weight: bold;
+    color: #24272B;
+    border-radius: 25px;
+    background-color: #3E78B2;
+}
+
+
+/* Style for the unordered list */
+#container {
+    display: flex;
+    flex-direction: column;
+    padding: 0; /* Remove default padding */
+    margin-bottom: 100px;
+    background-color: #004BA8; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+/* Style for each list item */
+.file {
+    padding: 15px; /* Add padding for spacing */
+    border-bottom: 1px solid #ccc; /* Divider line between items */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Remove the bottom border from the last item */
+.file:last-child {
+    border-bottom: none; /* Remove the border for the last item */
+}
+
+/* Style for links inside list items */
+.file{
+    text-decoration: none; /* Remove underline */
+    color: #f9f9f9; /* Link color */
+    font-weight: bold; /* Make links bold */
+    display: block; /* Make the entire area clickable */
+}
+
+/* Change background color on list item hover */
+.file:hover {
+    background-color: #034596; /* Light grey background on hover */
+}
+
+/* Add rounded corners to the first and last list items */
+.file:first-child {
+    border-top-left-radius: 8px; /* Top left rounded corner */
+    border-top-right-radius: 8px; /* Top right rounded corner */
+}
+
+.file:last-child {
+    border-bottom-left-radius: 8px; /* Bottom left rounded corner */
+    border-bottom-right-radius: 8px; /* Bottom right rounded corner */
+}
+
+
+#bottom_nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    box-shadow: 0 -2px 5px -2px #333;
+}
+
+#bottom_nav a{
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #3E78B2;
+
+}
+
+#bottom_nav a:hover{
+    background-color: #36699c;
+
+}
+
+#bottom_nav img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}

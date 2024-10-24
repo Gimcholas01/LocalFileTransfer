@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify, render_template
+from flask import *
+from werkzeug.utils import secure_filename
 import os
 import qrcode
 import subprocess
@@ -30,8 +31,17 @@ if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
 @app.route('/')
-def index():
+def home():
+    return redirect(url_for('upload'))
+
+@app.route('/upload')
+def upload():
     return render_template('upload.html')
+
+@app.route('/download')
+def download():
+    files = os.listdir(UPLOAD_FOLDER)
+    return render_template('download.html', files=files)
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -45,15 +55,21 @@ def upload_file():
 
     for file in files:
         if file.filename != '':
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+            filename = secure_filename(file.filename)
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(filepath)
     
-    return jsonify({'status': 'success', 'message': 'Files uploaded successfully'})
+    return redirect(url_for('upload'))
+
+
+@app.route("/download/<filename>")
+def download_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
 
 if __name__ == '__main__':
     # create qr
     qr = qrcode.QRCode(version=1, box_size=10, border=5)
-    qr.add_data(get_local_ip()+":8000")
+    qr.add_data("http://" + get_local_ip()+":8000")
     qr.make(fit=True)
     img = qr.make_image(fill_color="black", back_color="white")
     img.save("ScanMe_FileTransfer.png")

@@ -3,17 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fotang File Upload</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/upload.css') }}">
+    <title>File Upload</title>
 
+    <script>
+        function checkFileSelected() {
+            const fileInput = document.getElementById('fileInput');
+            const uploadBtn = document.getElementById('upload_button');
+
+            if (fileInput.files.length > 0) {
+                uploadBtn.style.display = 'inline-block';  // Show the button
+            } else {
+                uploadBtn.style.display = 'none';   // Hide the button
+            }
+        }
+    </script>
 </head>
 
 <body>
-    <h1>Upload Files</h1>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="file" id="fileInput" name="file" multiple required>
-        <br><br>
-        <button type="submit">Upload</button>
-    </form>
+    
+    <div id="header_div">
+        <h1>Upload Files</h1>
+    </div>
+    
+    <div id="form">
+        <form action="/upload" method="POST" enctype="multipart/form-data" onchange="checkFileSelected()">
+            <input type="file" id="fileInput" name="file" multiple required>
+            <br><br>
+            <button type="submit" id="upload_button">Upload</button>
+
+        </form>
+    </div>
+    
+    <div id="bottom_nav">
+        <a href="{{ url_for('download') }}"><img src="{{ url_for('static', filename='download.png') }}" class="image" />Download Files</a>
+    </div>
 
 </body>
 </html>
