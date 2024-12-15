@@ -50,7 +50,7 @@ input:hover {
     border-color: #3E78B2;          /* Change border color on hover */
 }
 
-#upload_button {
+#convert_button {
     background-color: #4A525A;     /* Button background color */
     display: none;
     color: white;                   /* Button text color */
@@ -63,7 +63,7 @@ input:hover {
     margin-top: 30px;              /* Margin above the button */
 }
 
-#upload_button:hover {
+#convert_button:hover {
     background-color: #7b8996;      /* Darker blue on hover */
 }
 
@@ -100,3 +100,4 @@ input:hover {
     height: 30px;
     margin-right: 10px;
 }
+

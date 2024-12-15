@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/convert.css') }}">
+    <title>File Convert</title>
+
+    <script>
+
+        function checkFileSelected() {
+            const fileInput = document.getElementById('fileInput');
+            const convertBtn = document.getElementById('convert_button');
+
+            if (fileInput.files.length > 0) {
+                convertBtn.style.display = 'inline-block';  // Show the button
+            } else {
+                convertBtn.style.display = 'none';   // Hide the button
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    
+    <div id="header_div">
+        <h1>File Convert</h1>
+    </div>
+    
+    <div id="form">
+        <form action="/convert" method="POST" enctype="multipart/form-data" onchange="checkFileSelected()"> 
+            <input type="file" id="fileInput" name="file">
+            <br><br>
+            <select name="file_type" id="type">
+                <option value="jpeg">JPEG</option>
+                <option value="png">PNG</option>
+                <option value="bmp">BMP</option>
+                <option value="tiff">TIFF</option>
+                <option value="webp">WebP</option>
+                <option value="tga">TGA</option>
+                <option value="pcx">PCX</option>
+                <option value="exr">EXR</option>
+                <option value="hdr">HDR</option>
+            </select>
+            <br><br>
+            <button type="submit" id="convert_button">Convert</button>
+
+        </form>
+    </div>
+
+    <div class="container" id="container">
+        <a class="file" href="{{ url_for('download_convert', filename=file) }}">{{ file }}</a>
+    </div>    
+
+    <div id="bottom_nav">
+        <a href="{{ url_for('download') }}"><img src="{{ url_for('static', filename='download.png') }}" class="image" />Download Files</a>
+    </div>
+
+</body>
+</html>
+
